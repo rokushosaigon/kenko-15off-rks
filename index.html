@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Rokusho x Kenko Bento — 15% OFF</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+:root{
+  --bg:#0a0a0a; --panel:rgba(17,17,16,.72); --line:rgba(255,255,255,.12);
+  --ink:#f3f1ea; --muted:#8f8b82; --gold:#cba05c;
+}
+html,body{background:var(--bg)}
+html{scroll-behavior:smooth}
+body{
+  margin:0;color:var(--ink);font-family:Poppins,ui-sans-serif,system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+  position:relative;
+}
+.bg{
+  position:fixed;inset:0;z-index:-1;
+  background:
+    linear-gradient(180deg, rgba(10,10,10,.55), rgba(10,10,10,.68) 40%, rgba(10,10,10,.82) 85%),
+    url("background.jpeg") center/cover no-repeat;
+}
+img{max-width:100%;display:block}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+section{padding:44px 20px}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:30;background:rgba(10,10,10,.55);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.navin{display:flex;align-items:center;justify-content:center;padding:14px 20px;max-width:1040px;margin:0 auto}
+.navin .brand{font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:700}
+.navin .brand span{color:var(--gold)}
+
+/* LANG TOGGLE */
+.langbar{display:flex;justify-content:center;gap:8px;padding:22px 20px 0}
+.langtab{background:var(--panel);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:999px;padding:8px 22px;cursor:pointer;font-size:12px;letter-spacing:.06em;font-weight:700;color:var(--muted)}
+.langtab.active{border-color:var(--gold);color:var(--gold)}
+
+/* INTRO */
+.intro{text-align:center;padding-top:26px}
+.kicker{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px}
+.intro h1{font-size:clamp(22px,5.5vw,32px);line-height:1.25;letter-spacing:-.01em;margin:0 0 16px;font-weight:800}
+.intro p{color:var(--muted);font-size:14px;line-height:1.7;max-width:640px;margin:0 auto}
+
+/* STEPS */
+.steps{padding-top:8px}
+.steps h2{text-align:center;font-size:clamp(20px,4.5vw,26px);margin:0 0 26px;font-weight:800;letter-spacing:-.01em}
+.steplist{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.step{display:flex;gap:16px;align-items:flex-start;background:var(--panel);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.step .num{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--gold);color:#0a0a0a;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+.step .txt{font-size:14px;line-height:1.6;color:var(--ink)}
+.step .txt b{color:var(--gold)}
+
+/* MENU */
+.menu{border-top:1px solid var(--line)}
+.menu h2{text-align:center;font-size:clamp(20px,4.5vw,26px);margin:0 0 6px;font-weight:800;letter-spacing:-.01em}
+.menu > p.sub{text-align:center;color:var(--muted);font-size:13px;margin:0 0 26px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:760px;margin:0 auto}
+.card{background:var(--panel);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.card .ph{aspect-ratio:3/2;overflow:hidden;background:#000}
+.card .ph img{width:100%;height:100%;object-fit:cover}
+.card .cap{padding:12px 14px}
+.card .cap .name{font-size:13px;font-weight:800;letter-spacing:.01em}
+.card .cap .tag{font-size:11px;color:var(--muted);margin-top:2px}
+/* TERMS */
+.terms{padding-top:0}
+.terms-inner{max-width:640px;margin:0 auto;border-top:1px solid var(--line);padding-top:28px}
+.terms-title{font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px}
+.terms ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.terms li{position:relative;padding-left:14px;font-size:12px;color:var(--muted);line-height:1.6}
+.terms li:before{content:"";position:absolute;left:0;top:7px;width:4px;height:4px;border-radius:50%;background:var(--gold)}
+
+.lang-en{display:none}
+
+@media(max-width:480px){
+  section{padding:32px 16px}
+  .grid{grid-template-columns:1fr 1fr;gap:10px}
+}
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+
+<nav class="nav">
+  <div class="navin">
+    <div class="brand">ROKUSHO <span>×</span> KENKO BENTO</div>
+  </div>
+</nav>
+
+<div class="langbar">
+  <div class="langtab active" data-lang="vi" onclick="setLang('vi',this)">VI</div>
+  <div class="langtab" data-lang="en" onclick="setLang('en',this)">EN</div>
+</div>
+
+<!-- VIETNAMESE -->
+<div class="lang-vi">
+  <section class="intro">
+    <div class="kicker">Ưu đãi đặc biệt</div>
+    <h1>ƯU ĐÃI ĐẶC BIỆT DÀNH CHO KHÁCH HÀNG CỦA ROKUSHO SAIGON KHI ORDER KENKO BENTO!</h1>
+    <p>Tận hưởng đêm tiệc Izakaya thả ga tại Rokusho Saigon đêm nay, và thưởng thức bữa trưa lành mạnh cùng Kenko Bento hôm sau với ưu đãi cực hấp dẫn!</p>
+  </section>
+
+  <section class="steps">
+    <h2>Nhận ngay ưu đãi giảm 15% Kenko Bento chỉ với 3 bước đơn giản</h2>
+    <div class="steplist">
+      <div class="step">
+        <div class="num">1</div>
+        <div class="txt">Giữ lại hóa đơn Rokusho đạt từ <b>1.000.000 VNĐ</b>.</div>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <div class="txt">Chụp ảnh hóa đơn và gửi vào <b>DM Fanpage Kenko Bento</b>.</div>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <div class="txt">Nhận mã giảm <b>15% OFF</b> và lên đơn ngay!</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu">
+    <h2>Bento áp dụng</h2>
+    <p class="sub">Ưu đãi áp dụng cho các bento sau</p>
+    <div class="grid">
+      <div class="card">
+        <div class="ph"><img src="High-Protein Bento 2.jpeg" alt="High-Protein Bento #2"></div>
+        <div class="cap"><div class="name">HIGH-PROTEIN BENTO #2</div></div>
+      </div>
+      <div class="card">
+        <div class="ph"><img src="High-protein Bento 3.jpeg" alt="High-Protein Bento #3"></div>
+        <div class="cap"><div class="name">HIGH-PROTEIN BENTO #3</div></div>
+      </div>
+      <div class="card">
+        <div class="ph"><img src="Low-Carb Bento 2.jpeg" alt="Low-Carb Bento #2"></div>
+        <div class="cap"><div class="name">LOW-CARB BENTO #2</div></div>
+      </div>
+      <div class="card">
+        <div class="ph"><img src="Vegetarian Bento 2.jpeg" alt="Vegetarian Bento #2"></div>
+        <div class="cap"><div class="name">VEGETARIAN BENTO #2</div></div>
+      </div>
+      <div class="card">
+        <div class="ph"><img src="Balanced Bento 1.jpeg" alt="Balanced Bento #1"></div>
+        <div class="cap"><div class="name">BALANCED BENTO #1</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="terms">
+    <div class="terms-inner">
+      <div class="terms-title">Điều kiện áp dụng</div>
+      <ul>
+        <li>Hóa đơn có giá trị sử dụng lên đến 30 ngày kể từ ngày xuất bill.</li>
+        <li>Chỉ áp dụng 1 lần / đơn.</li>
+        <li>Chỉ áp dụng cho một số bento nhất định (xem danh sách phía trên).</li>
+        <li>Rokusho &amp; Kenko Bento có quyền quyết định cuối cùng đối với mọi trường hợp phát sinh.</li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<!-- ENGLISH -->
+<div class="lang-en">
+  <section class="intro">
+    <div class="kicker">Exclusive offer</div>
+    <h1>EXCLUSIVE OFFER FOR ROKUSHO SAIGON CUSTOMERS WHEN ORDERING KENKO BENTO!</h1>
+    <p>Enjoy a big night out at Rokusho Saigon tonight, then switch to healthy fuel tomorrow with Kenko Bento!</p>
+  </section>
+
+  <section class="steps">
+    <h2>Follow 3 simple steps to redeem your 15% Kenko Bento discount</h2>
+    <div class="steplist">
+      <div class="step">
+        <div class="num">1</div>
+        <div class="txt">Keep any Rokusho bill worth <b>1,000,000 VND</b> or more.</div>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <div class="txt">Take a picture of your bill and <b>DM Kenko Bento</b>.</div>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <div class="txt">Unlock your <b>15% OFF</b> code and enjoy!</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu">
+    <h2>Applicable Bento Menu</h2>
+    <p class="sub">This offer applies to the following bentos</p>
+    <div class="grid">
+      <div class="card">
+        <div class="ph"><img src="High-Protein Bento 2.jpeg" alt="High-Protein Bento #2"></div>
+        <div class="cap"><div class="name">HIGH-PROTEIN BENTO #2</div></div>
+      </div>
+      <div class="card">
+        <div class="ph"><img src="High-protein Bento 3.jpeg" alt="High-Protein Bento #3"></div>
+        <div class="cap"><div class="name">HIGH-PROTEIN BENTO #3</div></div>
+      </div>
+      <div class="card">
+        <div class="ph"><img src="Low-Carb Bento 2.jpeg" alt="Low-Carb Bento #2"></div>
+        <div class="cap"><div class="name">LOW-CARB BENTO #2</div></div>
+      </div>
+      <div class="card">
+        <div class="ph"><img src="Vegetarian Bento 2.jpeg" alt="Vegetarian Bento #2"></div>
+        <div class="cap"><div class="name">VEGETARIAN BENTO #2</div></div>
+      </div>
+      <div class="card">
+        <div class="ph"><img src="Balanced Bento 1.jpeg" alt="Balanced Bento #1"></div>
+        <div class="cap"><div class="name">BALANCED BENTO #1</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="terms">
+    <div class="terms-inner">
+      <div class="terms-title">Terms &amp; Conditions</div>
+      <ul>
+        <li>Bills are redeemable within 30 days of purchase.</li>
+        <li>One-time use per order.</li>
+        <li>Valid only for selected bento menu options (see list above).</li>
+        <li>Rokusho &amp; Kenko Bento reserve final say on any disputes.</li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<script>
+function setLang(lang, el){
+  document.querySelectorAll('.langtab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelector('.lang-vi').style.display = lang === 'vi' ? 'block' : 'none';
+  document.querySelector('.lang-en').style.display = lang === 'en' ? 'block' : 'none';
+}
+</script>
+
+</body>
+</html>
