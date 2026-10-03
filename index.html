@@ -40,8 +40,27 @@ section{padding:44px 20px}
 .langtab{background:var(--panel);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:999px;padding:8px 22px;cursor:pointer;font-size:12px;letter-spacing:.06em;font-weight:700;color:var(--muted)}
 .langtab.active{border-color:var(--gold);color:var(--gold)}
 
+/* HERO */
+.hero{text-align:center;padding:34px 20px 8px;position:relative}
+.hero:before{content:"";position:absolute;left:50%;top:46%;width:min(520px,90vw);height:260px;transform:translate(-50%,-50%);
+  background:radial-gradient(closest-side,rgba(203,160,92,.28),rgba(203,160,92,0));filter:blur(10px);z-index:-1;pointer-events:none}
+.hero .eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.hero .eyebrow:before,.hero .eyebrow:after{content:"";width:34px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.hero .eyebrow:after{transform:scaleX(-1)}
+.hero .big{margin:14px 0 0;font-weight:800;line-height:.9;letter-spacing:-.04em;font-size:clamp(84px,24vw,168px);
+  background:linear-gradient(100deg,#8a6a35 0%,#e9cf98 22%,#fff3d6 32%,#cba05c 46%,#8a6a35 62%,#e9cf98 80%,#cba05c 100%);
+  background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 6px 26px rgba(203,160,92,.35));animation:shine 5s linear infinite}
+.hero .big .pct{font-size:.55em;vertical-align:.62em;margin-left:.02em}
+.hero .off{display:block;font-size:clamp(20px,5.4vw,30px);letter-spacing:.6em;margin:6px 0 0 .6em;font-weight:700;color:var(--ink)}
+.hero .brandline{margin:22px auto 0;display:inline-block;padding:10px 26px;border:1px solid rgba(203,160,92,.55);border-radius:999px;
+  font-size:clamp(15px,4vw,19px);font-weight:800;letter-spacing:.28em;text-transform:uppercase;background:rgba(10,10,10,.45);backdrop-filter:blur(8px)}
+.hero .tagline{margin:14px 0 0;font-size:15px;color:var(--ink);opacity:.85;font-style:italic;letter-spacing:.02em}
+@keyframes shine{to{background-position:-220% 0}}
+@media (prefers-reduced-motion:reduce){.hero .big{animation:none}}
+
 /* INTRO */
-.intro{text-align:center;padding-top:26px}
+.intro{text-align:center;padding-top:18px}
 .kicker{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px}
 .intro h1{font-size:clamp(22px,5.5vw,32px);line-height:1.25;letter-spacing:-.01em;margin:0 0 16px;font-weight:800}
 .intro p{color:var(--muted);font-size:14px;line-height:1.7;max-width:640px;margin:0 auto}
@@ -58,7 +77,13 @@ section{padding:44px 20px}
 /* MENU */
 .menu{border-top:1px solid var(--line)}
 .menu h2{text-align:center;font-size:clamp(20px,4.5vw,26px);margin:0 0 6px;font-weight:800;letter-spacing:-.01em}
-.menu > p.sub{text-align:center;color:var(--muted);font-size:13px;margin:0 0 26px}
+.menu > p.sub{text-align:center;color:var(--muted);font-size:13px;margin:0 0 16px}
+.order-cta{text-align:center;margin:0 0 26px}
+.order-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:999px;background:linear-gradient(100deg,#e9cf98,#cba05c 55%,#a8813f);
+  color:#0a0a0a;font-weight:800;font-size:14px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;
+  box-shadow:0 6px 24px rgba(203,160,92,.35);transition:transform .15s ease,box-shadow .15s ease}
+.order-btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(203,160,92,.5)}
+.order-btn:active{transform:translateY(0)}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:760px;margin:0 auto}
 .card{background:var(--panel);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:14px;overflow:hidden}
 .card .ph{aspect-ratio:3/2;overflow:hidden;background:#000}
@@ -99,14 +124,19 @@ section{padding:44px 20px}
 
 <!-- VIETNAMESE -->
 <div class="lang-vi">
+  <section class="hero">
+    <div class="eyebrow">Đặc quyền khách Rokusho</div>
+    <h1 class="big">15<span class="pct">%</span><span class="off">OFF</span></h1>
+    <div class="brandline">Kenko Bento</div>
+    <p class="tagline">Ưu đãi dành riêng cho bạn.</p>
+  </section>
+
   <section class="intro">
-    <div class="kicker">Ưu đãi đặc biệt</div>
-    <h1>ƯU ĐÃI ĐẶC BIỆT DÀNH CHO KHÁCH HÀNG CỦA ROKUSHO SAIGON KHI ORDER KENKO BENTO!</h1>
     <p>Tận hưởng đêm tiệc Izakaya thả ga tại Rokusho Saigon đêm nay, và thưởng thức bữa trưa lành mạnh cùng Kenko Bento hôm sau với ưu đãi cực hấp dẫn!</p>
   </section>
 
   <section class="steps">
-    <h2>Nhận ngay ưu đãi giảm 15% Kenko Bento chỉ với 3 bước đơn giản</h2>
+    <h2>Chỉ với 3 bước đơn giản</h2>
     <div class="steplist">
       <div class="step">
         <div class="num">1</div>
@@ -126,6 +156,7 @@ section{padding:44px 20px}
   <section class="menu">
     <h2>Bento áp dụng</h2>
     <p class="sub">Ưu đãi áp dụng cho các bento sau</p>
+    <div class="order-cta"><a class="order-btn" href="https://m.me/1202123629656207" target="_blank" rel="noopener">Order ngay →</a></div>
     <div class="grid">
       <div class="card">
         <div class="ph"><img src="High-Protein Bento 2.jpeg" alt="High-Protein Bento #2"></div>
@@ -169,14 +200,19 @@ section{padding:44px 20px}
 
 <!-- ENGLISH -->
 <div class="lang-en">
+  <section class="hero">
+    <div class="eyebrow">Rokusho guest privilege</div>
+    <h1 class="big">15<span class="pct">%</span><span class="off">OFF</span></h1>
+    <div class="brandline">Kenko Bento</div>
+    <p class="tagline">An offer made just for you.</p>
+  </section>
+
   <section class="intro">
-    <div class="kicker">Exclusive offer</div>
-    <h1>EXCLUSIVE OFFER FOR ROKUSHO SAIGON CUSTOMERS WHEN ORDERING KENKO BENTO!</h1>
     <p>Enjoy a big night out at Rokusho Saigon tonight, then switch to healthy fuel tomorrow with Kenko Bento!</p>
   </section>
 
   <section class="steps">
-    <h2>Follow 3 simple steps to redeem your 15% Kenko Bento discount</h2>
+    <h2>Just 3 simple steps</h2>
     <div class="steplist">
       <div class="step">
         <div class="num">1</div>
@@ -196,6 +232,7 @@ section{padding:44px 20px}
   <section class="menu">
     <h2>Applicable Bento Menu</h2>
     <p class="sub">This offer applies to the following bentos</p>
+    <div class="order-cta"><a class="order-btn" href="https://m.me/1202123629656207" target="_blank" rel="noopener">Order now →</a></div>
     <div class="grid">
       <div class="card">
         <div class="ph"><img src="High-Protein Bento 2.jpeg" alt="High-Protein Bento #2"></div>
