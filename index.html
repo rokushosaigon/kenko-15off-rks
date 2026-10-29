@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Rokusho x Kenko Bento — 15% OFF</title>
+<meta name="description" content="Giữ hóa đơn Rokusho từ 1.000.000 VNĐ, gửi cho Kenko Bento và nhận mã giảm 15%.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rokusho x Kenko Bento — 15% OFF">
+<meta property="og:description" content="Giữ hóa đơn Rokusho từ 1.000.000 VNĐ, gửi cho Kenko Bento và nhận mã giảm 15%.">
+<meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -22,8 +27,7 @@ body{
 .bg{
   position:fixed;inset:0;z-index:-1;
   background:
-    linear-gradient(180deg, rgba(10,10,10,.55), rgba(10,10,10,.68) 40%, rgba(10,10,10,.82) 85%),
-    url("background.jpeg") center/cover no-repeat;
+    linear-gradient(180deg, rgba(10,10,10,.55), rgba(10,10,10,.68) 40%, rgba(10,10,10,.82) 85%) center/cover no-repeat;
 }
 img{max-width:100%;display:block}
 .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
@@ -167,23 +171,23 @@ section{padding:44px 20px}
     <h2>Bento áp dụng</h2>
     <div class="grid">
       <div class="card">
-        <div class="ph"><img src="High-Protein Bento 2.jpeg" alt="High-Protein Bento #2"></div>
+        <div class="ph"><img data-src="High-Protein Bento 2.jpeg" alt="High-Protein Bento #2"></div>
         <div class="cap"><div class="name">HIGH-PROTEIN BENTO #2</div></div>
       </div>
       <div class="card">
-        <div class="ph"><img src="High-protein Bento 3.jpeg" alt="High-Protein Bento #3"></div>
+        <div class="ph"><img data-src="High-protein Bento 3.jpeg" alt="High-Protein Bento #3"></div>
         <div class="cap"><div class="name">HIGH-PROTEIN BENTO #3</div></div>
       </div>
       <div class="card">
-        <div class="ph"><img src="Low-Carb Bento 2.jpeg" alt="Low-Carb Bento #2"></div>
+        <div class="ph"><img data-src="Low-Carb Bento 2.jpeg" alt="Low-Carb Bento #2"></div>
         <div class="cap"><div class="name">LOW-CARB BENTO #2</div></div>
       </div>
       <div class="card">
-        <div class="ph"><img src="Vegetarian Bento 3.jpeg" alt="Vegetarian Bento #3"></div>
+        <div class="ph"><img data-src="Vegetarian Bento 3.jpeg" alt="Vegetarian Bento #3"></div>
         <div class="cap"><div class="name">VEGETARIAN BENTO #3</div></div>
       </div>
       <div class="card">
-        <div class="ph"><img src="Balanced Bento 1.jpeg" alt="Balanced Bento #1"></div>
+        <div class="ph"><img data-src="Balanced Bento 1.jpeg" alt="Balanced Bento #1"></div>
         <div class="cap"><div class="name">BALANCED BENTO #1</div></div>
       </div>
     </div>
@@ -241,23 +245,23 @@ section{padding:44px 20px}
     <h2>Applicable Bento Menu</h2>
     <div class="grid">
       <div class="card">
-        <div class="ph"><img src="High-Protein Bento 2.jpeg" alt="High-Protein Bento #2"></div>
+        <div class="ph"><img data-src="High-Protein Bento 2.jpeg" alt="High-Protein Bento #2"></div>
         <div class="cap"><div class="name">HIGH-PROTEIN BENTO #2</div></div>
       </div>
       <div class="card">
-        <div class="ph"><img src="High-protein Bento 3.jpeg" alt="High-Protein Bento #3"></div>
+        <div class="ph"><img data-src="High-protein Bento 3.jpeg" alt="High-Protein Bento #3"></div>
         <div class="cap"><div class="name">HIGH-PROTEIN BENTO #3</div></div>
       </div>
       <div class="card">
-        <div class="ph"><img src="Low-Carb Bento 2.jpeg" alt="Low-Carb Bento #2"></div>
+        <div class="ph"><img data-src="Low-Carb Bento 2.jpeg" alt="Low-Carb Bento #2"></div>
         <div class="cap"><div class="name">LOW-CARB BENTO #2</div></div>
       </div>
       <div class="card">
-        <div class="ph"><img src="Vegetarian Bento 3.jpeg" alt="Vegetarian Bento #3"></div>
+        <div class="ph"><img data-src="Vegetarian Bento 3.jpeg" alt="Vegetarian Bento #3"></div>
         <div class="cap"><div class="name">VEGETARIAN BENTO #3</div></div>
       </div>
       <div class="card">
-        <div class="ph"><img src="Balanced Bento 1.jpeg" alt="Balanced Bento #1"></div>
+        <div class="ph"><img data-src="Balanced Bento 1.jpeg" alt="Balanced Bento #1"></div>
         <div class="cap"><div class="name">BALANCED BENTO #1</div></div>
       </div>
     </div>
@@ -298,6 +302,11 @@ section{padding:44px 20px}
 </footer>
 
 <script>
+// Images load via JS so link previews (Facebook, Messenger, Zalo) show no thumbnail.
+document.querySelectorAll('img[data-src]').forEach(img => { img.src = img.dataset.src; });
+document.querySelector('.bg').style.backgroundImage =
+  'linear-gradient(180deg, rgba(10,10,10,.55), rgba(10,10,10,.68) 40%, rgba(10,10,10,.82) 85%), url("background.jpeg")';
+
 function setLang(lang, el){
   document.querySelectorAll('.langtab').forEach(t => t.classList.remove('active'));
   el.classList.add('active');
